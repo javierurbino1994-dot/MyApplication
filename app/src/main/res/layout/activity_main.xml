@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="20dp">
+
+
+    <TextView
+        android:id="@+id/food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="FOOD"
+        android:textColor="#00E5FF"
+        android:textSize="50dp"
+        android:layout_marginRight="65dp"
+        android:scaleX="1.5"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/fest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FEST"
+        android:textSize="65dp"
+        android:textStyle="bold"
+        android:textColor="#FF007F"
+        android:scaleX="1.4"
+        android:scaleY="1.3"
+        android:layout_marginTop="1dp"
+        android:layout_marginLeft="19dp"
+        android:fontFamily="sans-serif-black" />
+
+
+    <ImageView
+        android:id="@+id/imgfest"
+        android:layout_width="307dp"
+        android:layout_height="279dp"
+        android:layout_marginTop="40dp"
+        android:contentDescription="Imagen festival"
+        android:src="@drawable/image" />
+
+
+    <Button
+        android:id="@+id/btnIN"
+        android:layout_marginTop="60dp"
+        android:layout_width="218dp"
+        android:layout_height="50dp"
+        android:background="@drawable/iniciarsesion"
+        android:text="Iniciar Sesión"
+        android:textFontWeight="2000"
+        android:textSize="24sp"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/btnQR"
+        android:layout_marginTop="30dp"
+        android:layout_width="218dp"
+        android:layout_height="50dp"
+        android:background="@drawable/qr"
+        android:textSize="24sp"
+        android:text="Escanear QR"
+        android:textFontWeight="2000"
+        android:textColor="@android:color/white" />
+
+</LinearLayout>
