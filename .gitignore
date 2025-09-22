@@ -1,15 +1,24 @@
+# Archivos de configuración específicos del entorno
 *.iml
-.gradle
 /local.properties
-/.idea/caches
-/.idea/libraries
+/.idea/
+/.DS_Store
+
+# Cachés y configuraciones internas
+/.idea/caches/
+/.idea/libraries/
 /.idea/modules.xml
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-local.properties
+
+# Archivos de compilación y temporales
+/build/
+/captures/
+/.externalNativeBuild/
+/.cxx/
+/.gradle/
+
+# Archivos de sistema
+*.log
+*.tmp
