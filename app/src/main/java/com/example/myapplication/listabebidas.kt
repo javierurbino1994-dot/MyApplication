@@ -92,34 +92,5 @@ class listabebidas : AppCompatActivity() {
         val adapter = BebidaAdapter(bebidas)
         recyclerView.adapter = adapter
 
-        // ⬇️ Aquí agregas el listener del BottomNavigation
-        val bottomNav = findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.bottomNavigation)
-
-        bottomNav.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.nav_home -> {
-                    val intent = Intent(this, PrincipalActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-                R.id.nav_ticket -> {
-                    // Ya estás aquí
-                    true
-                }
-                R.id.nav_profile -> {
-                    val intent = Intent(this, ProfileActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-                else -> false
-            }
-
-        }
-
-
-    }
-    fun irPagar(view: View){
-        val intent = Intent(this, ProfileActivity::class.java)
-        startActivity(intent)
     }
 }
