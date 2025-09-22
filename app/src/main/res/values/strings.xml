@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="menu1_text">Inicio</string>
+    <string name="menu2_text">Productos</string>
+    <string name="menu3_text">Servicios</string>
+    <string name="menuapp_name">FOOD</string>
+    <string name="menuapp2_name">FEST</string>
+    <string name="txt_correo">Correo electrónico</string>
+    <string name="txt_password">Contraseña:</string>
+    <string name="txt_ejcorreo">example@gmail.com</string>
+    <string name="txt_ejpass">********</string>
+    <string name="txt_act1">¿Aún no tienes cuenta?</string>
+    <string name="txt_act2">¿Ya tienes una cuenta?</string>
+    <string name="txt_log">Registrarme</string>
+    <string name="txt_continuar">Continuar con</string>
+    <string name="txt_login">Iniciar sesión</string>
+    <string name="txt_rpass">Repetir Contraseña:</string>
 </resources>
