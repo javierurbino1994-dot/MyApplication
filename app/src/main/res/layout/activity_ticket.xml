@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="#FFFFFF">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Título FOOD FEST -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/tvFood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FOOD"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:textColor="#00D4FF"/>
+
+            <TextView
+                android:id="@+id/tvFest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" FEST"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:textColor="#FF007A"/>
+        </LinearLayout>
+
+        <!-- Código QR -->
+        <ImageView
+            android:id="@+id/ivQrCode"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Datos del cliente con íconos -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Nombre -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_person"
+                    app:tint="#FF007A"
+
+                    android:layout_gravity="center_vertical"/>
+                <TextView
+                    android:id="@+id/tvNombre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre: Javier"
+                    android:textSize="16sp"
+                    android:layout_marginStart="8dp"/>
+            </LinearLayout>
+
+            <!-- DNI -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_id_card"
+                    app:tint="#FF007A"
+                    android:layout_gravity="center_vertical"/>
+                <TextView
+                    android:id="@+id/tvDni"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DNI: 12345678"
+                    android:textSize="16sp"
+                    android:layout_marginStart="8dp"/>
+            </LinearLayout>
+
+            <!-- Teléfono -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_phone"
+                    app:tint="#FF007A"
+                    android:layout_gravity="center_vertical"/>
+                <TextView
+                    android:id="@+id/tvTelefono"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Teléfono: 987654321"
+                    android:textSize="16sp"
+                    android:layout_marginStart="8dp"/>
+            </LinearLayout>
+
+            <!-- Correo -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_email"
+                    app:tint="#FF007A"
+                    android:layout_gravity="center_vertical"/>
+                <TextView
+                    android:id="@+id/tvEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Correo: javier@gmail.com"
+                    android:textSize="16sp"
+                    android:layout_marginStart="8dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Contador -->
+        <TextView
+            android:id="@+id/tvContador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tiempo estimado para recoger: 00:20:00"
+            android:textSize="18sp"
+            android:textColor="#FF5722"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Instrucción final -->
+        <TextView
+            android:id="@+id/tvInstruccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Muestra este ticket en caja para recoger tus productos."
+            android:textSize="16sp"
+            android:textColor="#555555"
+            android:textAlignment="center"/>
+    </LinearLayout>
+</ScrollView>
