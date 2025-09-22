@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="#E6F7FF"
+    android:layout_marginVertical="10dp"
+    android:elevation="2dp"
+    android:padding="12dp"
+    android:layout_marginHorizontal="16dp"
+    >
+
+    <!-- Imagen -->
+    <ImageView
+        android:id="@+id/imgBebida"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/ic_launcher_foreground"
+        android:contentDescription="Imagen bebida"
+        android:layout_marginEnd="12dp" />
+
+    <!-- Info bebida + Controles -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <!-- Nombre -->
+        <TextView
+            android:id="@+id/txtNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre bebida"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#000000" />
+
+        <!-- Volumen -->
+        <TextView
+            android:id="@+id/txtVolumen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="500 ml"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:textColor="#555555" />
+
+        <!-- Precio + Controles en una sola fila -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="4dp">
+
+            <TextView
+                android:id="@+id/txtPrecio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="S/ 5.00"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:textColor="#1A237E"
+                android:layout_marginEnd="12dp" />
+
+            <!-- Botón - -->
+            <Button
+                android:id="@+id/btnMenos"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="-"
+                android:textSize="16sp"
+                android:backgroundTint="#FF5252"
+                android:textColor="#FFFFFF" />
+
+            <!-- Cantidad -->
+            <TextView
+                android:id="@+id/txtCantidad"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:gravity="center"
+                android:text="0"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginHorizontal="4dp" />
+
+            <!-- Botón + -->
+            <Button
+                android:id="@+id/btnMas"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="+"
+                android:textSize="16sp"
+                android:backgroundTint="#4CAF50"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
