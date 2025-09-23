@@ -86,7 +86,7 @@ class YapePaymentActivity : AppCompatActivity() {
 
         // Simular éxito después de 2 segundos
         btnPayYape.isEnabled = false
-        btnPayYape.text = "PROCESANDO..."
+        btnPayYape.text = "PROCESSED..."
 
         android.os.Handler().postDelayed({
             showToast("¡Pago exitoso! S/ 87.20")
