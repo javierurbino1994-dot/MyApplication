@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="24dp"
-    android:background="#FFFFFF">
+    android:background="#000000"
+    android:fillViewport="true">
 
 
-
-    <LinearLayout
+<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -19,136 +20,209 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:orientation="horizontal"
-            android:layout_marginBottom="16dp">
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/tvFood"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="FOOD"
+                android:textColor="#00D4FF"
                 android:textSize="32sp"
-                android:textStyle="bold"
-                android:textColor="#00D4FF"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvFest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" FEST"
+                android:textColor="#FF007A"
                 android:textSize="32sp"
-                android:textStyle="bold"
-                android:textColor="#FF007A"/>
+                android:textStyle="bold" />
         </LinearLayout>
 
         <!-- Código QR -->
         <ImageView
             android:id="@+id/ivQrCode"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginBottom="24dp"/>
+            android:layout_width="192dp"
+            android:layout_height="192dp"
+            android:layout_marginBottom="24dp"
+            android:background="#FFFFFF"
+            android:padding="8dp"
+            android:scaleType="centerInside" />
 
-        <!-- Datos del cliente con íconos -->
+        <!-- Datos del cliente -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginBottom="24dp">
 
             <!-- Nombre -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
                 android:orientation="horizontal"
-                android:layout_marginBottom="8dp">
+                android:gravity="center_vertical">
+
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_person"
-                    app:tint="#FF007A"
+                    android:tint="#FF007A"
+                    tools:ignore="UseAppTint" />
 
-                    android:layout_gravity="center_vertical"/>
                 <TextView
-                    android:id="@+id/tvNombre"
+                    style="@style/ticketLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nombre: Javier"
-                    android:textSize="16sp"
-                    android:layout_marginStart="8dp"/>
+                    android:text="Nombre: " />
+
+                <TextView
+                    android:id="@+id/tvNombre"
+                    style="@style/ticketValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Javier" />
+
+
+
+
+            </LinearLayout>
+
+            <!-- Apellido -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                tools:ignore="ExtraText">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_person"
+                    android:tint="#FF007A"
+                    tools:ignore="UseAppTint" />
+
+
+                <TextView
+                    style="@style/ticketLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Apellido: " />
+
+                <TextView
+                    android:id="@+id/tvApellido"
+                    style="@style/ticketValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Obregon Urbino" />
             </LinearLayout>
 
             <!-- DNI -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
                 android:orientation="horizontal"
-                android:layout_marginBottom="8dp">
+                android:gravity="center_vertical">
+
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_id_card"
-                    app:tint="#FF007A"
-                    android:layout_gravity="center_vertical"/>
+                    android:tint="#FF007A"
+                    tools:ignore="UseAppTint" />
+
                 <TextView
-                    android:id="@+id/tvDni"
+                    style="@style/ticketLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="DNI: 12345678"
-                    android:textSize="16sp"
-                    android:layout_marginStart="8dp"/>
+                    android:text="DNI O CE: " />
+
+                <TextView
+                    android:id="@+id/tvDni"
+                    style="@style/ticketValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12345678" />
             </LinearLayout>
 
-            <!-- Teléfono -->
+            <!-- Celular -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
                 android:orientation="horizontal"
-                android:layout_marginBottom="8dp">
+                android:gravity="center_vertical">
+
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_phone"
-                    app:tint="#FF007A"
-                    android:layout_gravity="center_vertical"/>
+                    android:tint="#FF007A"
+                    tools:ignore="UseAppTint" />
+
                 <TextView
-                    android:id="@+id/tvTelefono"
+                    style="@style/ticketLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Teléfono: 987654321"
-                    android:textSize="16sp"
-                    android:layout_marginStart="8dp"/>
+                    android:text="Celular: " />
+
+                <TextView
+                    android:id="@+id/tvCelular"
+                    style="@style/ticketValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="912345678" />
             </LinearLayout>
 
             <!-- Correo -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
                 android:orientation="horizontal"
-                android:layout_marginBottom="16dp">
+                android:gravity="center_vertical">
+
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_email"
-                    app:tint="#FF007A"
-                    android:layout_gravity="center_vertical"/>
+                    android:tint="#FF007A"
+                    tools:ignore="UseAppTint" />
+
                 <TextView
-                    android:id="@+id/tvEmail"
+                    style="@style/ticketLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Correo: javier@gmail.com"
-                    android:textSize="16sp"
-                    android:layout_marginStart="8dp"/>
+                    android:text="Correo: " />
+
+                <TextView
+                    android:id="@+id/tvCorreo"
+                    style="@style/ticketValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Javier@gmail.con" />
             </LinearLayout>
         </LinearLayout>
+
 
         <!-- Contador -->
         <TextView
             android:id="@+id/tvContador"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
             android:text="Tiempo estimado para recoger: 00:20:00"
-            android:textSize="18sp"
             android:textColor="#FF5722"
-            android:layout_marginBottom="24dp"/>
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <!-- Instrucción final -->
         <TextView
@@ -156,8 +230,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Muestra este ticket en caja para recoger tus productos."
-            android:textSize="16sp"
-            android:textColor="#555555"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:textColor="#CCCCCC"
+            android:textSize="16sp" />
     </LinearLayout>
 </ScrollView>

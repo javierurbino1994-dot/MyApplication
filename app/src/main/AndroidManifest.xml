@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.myapplication">
 
-<application
+    <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -12,7 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
+        <activity
+            android:name=".YapePaymentActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <!-- Pantalla inicial -->
         <activity
             android:name=".listabebidas"
@@ -24,25 +32,16 @@
             android:theme="@style/Theme.MyApplication">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!-- TicketActivity se abre solo desde MainActivity -->
         <activity
-            android:name=".TicketActivity"
+            android:name=".LoginActivity"
             android:exported="false" />
-
-  <!-- Historia 07 y 08 -->
-    <activity
-        android:name=".PaymentMethodActivity"
-        android:exported="false" />
-
-    <activity
-        android:name=".YapePaymentActivity"
-        android:exported="false" />
-
-
+        <activity
+            android:name=".activity_registro"
+            android:exported="false" />
     </application>
 
 </manifest>

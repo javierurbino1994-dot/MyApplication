@@ -1,89 +1,104 @@
-package com.yourpackage.foodfest
+
+
+package com.example.myapplication
 
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
-import com.yourpackage.foodfest.databinding.ActivityYapePaymentBinding
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 
 class YapePaymentActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityYapePaymentBinding
-    private val paymentAmount = "S/ 20"
+    private lateinit var etPhoneNumber: EditText
+    private lateinit var etApprovalCode: EditText
+    private lateinit var btnPayYape: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_yape_payment)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_yape_payment)
 
-        setupViews()
+        // Configurar insets para edge-to-edge
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
+        // Inicializar vistas
+        initViews()
+
+        // Configurar listeners
         setupListeners()
     }
 
-    private fun setupViews() {
-        // Mostrar el monto en el botón
-        binding.btnPayYape.text = "YAPEAR $paymentAmount"
+    private fun initViews() {
+        etPhoneNumber = findViewById(R.id.et_phone_number)
+        etApprovalCode = findViewById(R.id.et_approval_code)
+        btnPayYape = findViewById(R.id.btn_pay_yape)
     }
 
     private fun setupListeners() {
-        binding.btnPayYape.setOnClickListener {
+        btnPayYape.setOnClickListener {
             processYapePayment()
-        }
-
-        // Listener para el botón de regresar (si lo tienes)
-        binding.btnBack?.setOnClickListener {
-            finish()
         }
     }
 
     private fun processYapePayment() {
-        val phoneNumber = binding.etPhoneNumber.text.toString().trim()
-        val approvalCode = binding.etApprovalCode.text.toString().trim()
+        val phoneNumber = etPhoneNumber.text.toString().trim()
+        val approvalCode = etApprovalCode.text.toString().trim()
 
         // Validaciones
         if (phoneNumber.isEmpty()) {
-            Toast.makeText(this, "Ingresa tu número de celular", Toast.LENGTH_SHORT).show()
-            binding.etPhoneNumber.requestFocus()
+            showToast("Ingresa tu número de celular Yape")
             return
         }
 
-        if (phoneNumber.length != 9) {
-            Toast.makeText(this, "El número debe tener 9 dígitos", Toast.LENGTH_SHORT).show()
-            binding.etPhoneNumber.requestFocus()
+        if (phoneNumber.length != 9 || !phoneNumber.startsWith("9")) {
+            showToast("Ingresa un número de celular válido (9########)")
             return
         }
 
         if (approvalCode.isEmpty()) {
-            Toast.makeText(this, "Ingresa el código de aprobación", Toast.LENGTH_SHORT).show()
-            binding.etApprovalCode.requestFocus()
+            showToast("Ingresa el código de aprobación")
             return
         }
 
-        if (approvalCode.length < 6) {
-            Toast.makeText(this, "El código debe tener al menos 6 dígitos", Toast.LENGTH_SHORT).show()
-            binding.etApprovalCode.requestFocus()
+        if (approvalCode.length != 6) {
+            showToast("El código de aprobación debe tener 6 dígitos")
             return
         }
 
         // Simular procesamiento de pago
-        simulatePaymentProcess(phoneNumber, approvalCode)
+        showToast("Procesando pago Yape...")
+
+        // Aquí iría la lógica real de integración con Yape
+        processPaymentWithYape(phoneNumber, approvalCode)
     }
 
-    private fun simulatePaymentProcess(phone: String, code: String) {
-        // Aquí irían las llamadas a la API de Yape o tu backend
-        // Por ahora simulamos el proceso
+    private fun processPaymentWithYape(phoneNumber: String, approvalCode: String) {
+        // Simular llamada a API de Yape
+        // En una implementación real, aquí harías la integración con el servicio de Yape
 
-        binding.btnPayYape.isEnabled = false
-        binding.btnPayYape.text = "Procesando..."
+        // Simular éxito después de 2 segundos
+        btnPayYape.isEnabled = false
+        btnPayYape.text = "PROCESANDO..."
 
-        // Simular delay de procesamiento
-        binding.btnPayYape.postDelayed({
-            // Simular respuesta exitosa
-            Toast.makeText(this, "¡Pago exitoso! Gracias por tu compra", Toast.LENGTH_LONG).show()
+        android.os.Handler().postDelayed({
+            showToast("¡Pago exitoso! S/ 87.20")
+            btnPayYape.isEnabled = true
+            btnPayYape.text = "YAPEAR S/ 87.20"
 
-            // Aquí podrías navegar a una pantalla de confirmación
-            // o regresar al inicio con el resultado
+            // Regresar a la actividad anterior
             finish()
+        }, 2000)
+    }
 
-        }, 2000) // 2 segundos de delay
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }

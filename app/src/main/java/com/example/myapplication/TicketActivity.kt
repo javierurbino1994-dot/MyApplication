@@ -20,8 +20,8 @@ class TicketActivity : AppCompatActivity() {
         val ivQrCode = findViewById<ImageView>(R.id.ivQrCode)
         val tvNombre = findViewById<TextView>(R.id.tvNombre)
         val tvDni = findViewById<TextView>(R.id.tvDni)
-        val tvTelefono = findViewById<TextView>(R.id.tvTelefono)
-        val tvEmail = findViewById<TextView>(R.id.tvEmail)
+        val tvTelefono = findViewById<TextView>(R.id.tvCelular)
+        val tvEmail = findViewById<TextView>(R.id.tvCorreo)
         val tvContador = findViewById<TextView>(R.id.tvContador)
         val tvInstruccion = findViewById<TextView>(R.id.tvInstruccion)
 
