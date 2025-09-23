@@ -1,4 +1,4 @@
-package com.example.upcmov
+package com.example.myapplication
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
