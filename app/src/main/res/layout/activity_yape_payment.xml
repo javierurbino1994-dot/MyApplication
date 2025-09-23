@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#F5F5F5"
+        android:padding="24dp">
+
+        <!-- Header con título FOOD FEST -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginBottom="40dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FOOD"
+                android:textSize="48sp"
+                android:textStyle="bold"
+                android:background="@drawable/gradient_blue"
+                android:textColor="@android:color/white"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FEST"
+                android:textSize="48sp"
+                android:textStyle="bold"
+                android:background="@drawable/gradient_pink"
+                android:textColor="@android:color/white"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                android:layout_marginTop="8dp" />
+
+        </LinearLayout>
+
+        <!-- Contenedor principal del formulario Yape -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/yape_container_background"
+            android:padding="32dp"
+            android:gravity="center">
+
+            <!-- Logo de Yape -->
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_yape_logo"
+                android:layout_marginBottom="24dp" />
+
+            <!-- Campo de número de celular -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ingresa tu celular yape"
+                    android:textSize="14sp"
+                    android:textColor="#666666"
+                    android:layout_marginBottom="8dp" />
+
+                <EditText
+                    android:id="@+id/et_phone_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@drawable/edittext_background"
+                    android:padding="16dp"
+                    android:hint="9########"
+                    android:inputType="phone"
+                    android:maxLength="9"
+                    android:textSize="16sp"
+                    android:textColor="#333333" />
+
+            </LinearLayout>
+
+            <!-- Campo de código de aprobación -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="24dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Código de aprobación"
+                    android:textSize="14sp"
+                    android:textColor="#666666"
+                    android:layout_marginBottom="8dp" />
+
+                <EditText
+                    android:id="@+id/et_approval_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@drawable/edittext_background"
+                    android:padding="16dp"
+                    android:hint="••••••"
+                    android:inputType="numberPassword"
+                    android:maxLength="8"
+                    android:textSize="16sp"
+                    android:textColor="#333333" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Encuéntralo en el menú de Yape"
+                    android:textSize="12sp"
+                    android:textColor="#999999"
+                    android:layout_marginTop="4dp" />
+
+            </LinearLayout>
+
+            <!-- Botón de pago -->
+            <Button
+                android:id="@+id/btn_pay_yape"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="YAPEAR S/ 20"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:background="@drawable/yape_button_background"
+                android:layout_marginTop="16dp" />
+
+        </LinearLayout>
+
+        <!-- Espaciador -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+</layout>

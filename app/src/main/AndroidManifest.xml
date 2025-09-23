@@ -32,6 +32,17 @@
         <activity
             android:name=".TicketActivity"
             android:exported="false" />
+
+  <!-- Historia 07 y 08 -->
+    <activity
+        android:name=".PaymentMethodActivity"
+        android:exported="false" />
+
+    <activity
+        android:name=".YapePaymentActivity"
+        android:exported="false" />
+
+
     </application>
 
 </manifest>
