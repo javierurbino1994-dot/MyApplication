@@ -1,7 +1,6 @@
-
-
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -17,23 +16,35 @@ class YapePaymentActivity : AppCompatActivity() {
     private lateinit var etApprovalCode: EditText
     private lateinit var btnPayYape: Button
 
+    // Variables para almacenar los datos del usuario
+    private lateinit var nombre: String
+    private lateinit var dni: String
+    private lateinit var telefono: String
+    private lateinit var email: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_yape_payment)
 
-        // Configurar insets para edge-to-edge
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        // Inicializar vistas
-        initViews()
+        // Recibir datos de TipodepagoActivity
+        recibirDatosUsuario()
 
-        // Configurar listeners
+        initViews()
         setupListeners()
+    }
+
+    private fun recibirDatosUsuario() {
+        nombre = intent.getStringExtra("nombre") ?: "Nombre no disponible"
+        dni = intent.getStringExtra("dni") ?: "DNI no disponible"
+        telefono = intent.getStringExtra("telefono") ?: "Teléfono no disponible"
+        email = intent.getStringExtra("email") ?: "Email no disponible"
     }
 
     private fun initViews() {
@@ -52,7 +63,6 @@ class YapePaymentActivity : AppCompatActivity() {
         val phoneNumber = etPhoneNumber.text.toString().trim()
         val approvalCode = etApprovalCode.text.toString().trim()
 
-        // Validaciones
         if (phoneNumber.isEmpty()) {
             showToast("Ingresa tu número de celular Yape")
             return
@@ -73,29 +83,34 @@ class YapePaymentActivity : AppCompatActivity() {
             return
         }
 
-        // Simular procesamiento de pago
         showToast("Procesando pago Yape...")
-
-        // Aquí iría la lógica real de integración con Yape
         processPaymentWithYape(phoneNumber, approvalCode)
     }
 
     private fun processPaymentWithYape(phoneNumber: String, approvalCode: String) {
-        // Simular llamada a API de Yape
-        // En una implementación real, aquí harías la integración con el servicio de Yape
-
-        // Simular éxito después de 2 segundos
         btnPayYape.isEnabled = false
-        btnPayYape.text = "PROCESSED..."
+        btnPayYape.text = "PROCESANDO..."
 
         android.os.Handler().postDelayed({
             showToast("¡Pago exitoso! S/ 87.20")
             btnPayYape.isEnabled = true
             btnPayYape.text = "YAPEAR S/ 87.20"
 
-            // Regresar a la actividad anterior
-            finish()
+            // Navegar a TicketActivity con los datos del usuario
+            navigateToTicketActivity()
         }, 2000)
+    }
+
+    private fun navigateToTicketActivity() {
+        val intent = Intent(this, TicketActivity::class.java).apply {
+            putExtra("nombre", nombre)
+            putExtra("dni", dni)
+            putExtra("telefono", telefono)
+            putExtra("email", email)
+        }
+
+        startActivity(intent)
+        // finish() // Opcional: cierra esta actividad
     }
 
     private fun showToast(message: String) {

@@ -63,23 +63,26 @@
             android:layout_marginBottom="16dp"
             app:cardCornerRadius="12dp"
             app:cardElevation="2dp"
-            app:cardUseCompatPadding="true">
+            app:cardUseCompatPadding="true"
+            android:clickable="false"
+            android:focusable="false">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="16dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?android:attr/selectableItemBackground">
+                android:clickable="false"
+                android:focusable="false">
 
                 <!-- Header de la opción -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:clickable="false"
+                    android:focusable="false">
 
                     <RadioButton
                         android:id="@+id/rbTarjeta"
@@ -107,7 +110,9 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginTop="12dp"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:clickable="false"
+                    android:focusable="false">
 
                     <ImageView
                         android:layout_width="0dp"
@@ -117,6 +122,8 @@
                         android:scaleType="fitCenter"
                         android:layout_margin="4dp"
                         android:contentDescription="Visa"
+                        android:clickable="false"
+                        android:focusable="false"
                         tools:ignore="HardcodedText" />
 
                     <ImageView
@@ -127,6 +134,8 @@
                         android:scaleType="fitCenter"
                         android:layout_margin="4dp"
                         android:contentDescription="Mastercard"
+                        android:clickable="false"
+                        android:focusable="false"
                         tools:ignore="HardcodedText" />
 
                     <ImageView
@@ -137,6 +146,8 @@
                         android:scaleType="fitCenter"
                         android:layout_margin="4dp"
                         android:contentDescription="American Express"
+                        android:clickable="false"
+                        android:focusable="false"
                         tools:ignore="HardcodedText" />
 
                     <ImageView
@@ -147,6 +158,8 @@
                         android:scaleType="fitCenter"
                         android:layout_margin="4dp"
                         android:contentDescription="Diners Club"
+                        android:clickable="false"
+                        android:focusable="false"
                         tools:ignore="HardcodedText" />
 
                     <ImageView
@@ -157,6 +170,8 @@
                         android:scaleType="fitCenter"
                         android:layout_margin="4dp"
                         android:contentDescription="Discover"
+                        android:clickable="false"
+                        android:focusable="false"
                         tools:ignore="HardcodedText" />
 
                 </LinearLayout>
@@ -173,23 +188,26 @@
             android:layout_marginBottom="16dp"
             app:cardCornerRadius="12dp"
             app:cardElevation="2dp"
-            app:cardUseCompatPadding="true">
+            app:cardUseCompatPadding="true"
+            android:clickable="false"
+            android:focusable="false">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="16dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?android:attr/selectableItemBackground">
+                android:clickable="false"
+                android:focusable="false">
 
                 <!-- Header de la opción -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:clickable="false"
+                    android:focusable="false">
 
                     <RadioButton
                         android:id="@+id/rbTransferencia"
@@ -219,6 +237,8 @@
                     android:scaleType="fitCenter"
                     android:layout_marginTop="12dp"
                     android:contentDescription="Transferencia bancaria"
+                    android:clickable="false"
+                    android:focusable="false"
                     tools:ignore="HardcodedText" />
 
             </LinearLayout>
@@ -233,23 +253,26 @@
             android:layout_marginBottom="25dp"
             app:cardCornerRadius="12dp"
             app:cardElevation="2dp"
-            app:cardUseCompatPadding="true">
+            app:cardUseCompatPadding="true"
+            android:clickable="false"
+            android:focusable="false">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="16dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?android:attr/selectableItemBackground">
+                android:clickable="false"
+                android:focusable="false">
 
                 <!-- Header de la opción -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:clickable="false"
+                    android:focusable="false">
 
                     <RadioButton
                         android:id="@+id/rbYape"
@@ -280,6 +303,8 @@
                     android:contentDescription="Pago con Yape"
                     android:scaleType="fitCenter"
                     android:src="@drawable/ic_yape_logo"
+                    android:clickable="false"
+                    android:focusable="false"
                     tools:ignore="HardcodedText" />
 
             </LinearLayout>

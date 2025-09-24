@@ -91,6 +91,12 @@ class listabebidas : AppCompatActivity() {
 
         val adapter = BebidaAdapter(bebidas)
         recyclerView.adapter = adapter
+        // === SOLO ESTO SE AGREGA ===
+        val btnContinuar = findViewById<Button>(R.id.btnContinuar)
+        btnContinuar.setOnClickListener {
+            val intent = Intent(this, IdentificacionActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 }

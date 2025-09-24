@@ -45,8 +45,8 @@
         android:layout_marginBottom="10dp"
         android:text="Continuar"
         android:onClick="irPagar"
-        android:textColor="@android:color/white"
-        android:background="@drawable/border_button"
+        android:textColor="@android:color/black"
+        android:background="@drawable/boderlinear_hu0004"
         android:padding="12dp" />
 
     <!-- Barra de navegación inferior -->
@@ -54,10 +54,10 @@
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/border_button"
+        android:background="@drawable/boderlinear_hu0004"
         android:layout_marginHorizontal="50dp"
         app:menu="@menu/menu"
-        app:itemIconTint="@android:color/white"
-        app:itemTextColor="@android:color/white" />
+        app:itemIconTint="@android:color/black"
+        app:itemTextColor="@android:color/black" />
 
 </LinearLayout>
