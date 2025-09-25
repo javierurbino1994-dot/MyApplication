@@ -1,4 +1,5 @@
-<resources>
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">My Application</string>
     <string name="menu1_text">Inicio</string>
     <string name="menu2_text">Productos</string>
@@ -15,4 +16,34 @@
     <string name="txt_continuar">Continuar con</string>
     <string name="txt_login">Iniciar sesión</string>
     <string name="txt_rpass">Repetir Contraseña:</string>
+
+    <!-- 🔹 NUEVOS STRINGS PARA PAGOS -->
+    <string name="processing" tools:ignore="TypographyEllipsis">PROCESANDO...</string>
+    <string name="pay_amount">PAGAR S/ 99.75</string>
+    <string name="payment_success">¡Pago exitoso! Voucher enviado a: %1$s</string>
+    <string name="pay_yape">YAPEAR S/ 87.20</string>
+    <string name="generating_cip" tools:ignore="TypographyEllipsis">GENERANDO CIP...</string>
+    <string name="cip_success">¡Código CIP generado! Se envió a: %1$s</string>
+    <string name="dato_no_disponible">Dato no disponible</string>
+    <string name="error_card_number">Ingresa el número de tarjeta</string>
+    <string name="error_card_invalid">Número de tarjeta no válido</string>
+    <string name="error_expiry_empty">Ingresa la fecha de expiración</string>
+    <string name="error_expiry_invalid">Fecha inválida (MM/AA)</string>
+    <string name="error_cvv_empty">Ingresa el CVV</string>
+    <string name="error_cvv_invalid">CVV no válido</string>
+    <string name="error_cardholder">Ingresa el nombre del titular</string>
+    <string name="error_email_cip_empty">Ingresa el email para envío del código CIP</string>
+    <string name="error_email_invalid">Ingresa un email válido</string>
+    <string name="generating_cip_button" tools:ignore="TypographyEllipsis">GENERANDO CIP...</string>
+    <string name="cip_generated">¡CIP generado! Enviado a: %1$s</string>
+    <string name="ticket_nombre">Nombre: %1$s</string>
+    <string name="ticket_apellido">Apellido: %1$s</string>
+    <string name="ticket_dni">DNI: %1$s</string>
+    <string name="ticket_telefono">Teléfono: %1$s</string>
+    <string name="ticket_email">Correo: %1$s</string>
+    <string name="ticket_fecha_hora">Generado el: %1$s</string>
+    <string name="ticket_tiempo">Tiempo estimado para recoger: 00:20:00</string>
+    <string name="ticket_instruccion">Muestra este ticket en caja para recoger tus productos.</string>
+    <string name="payment_processing">Procesando pago con tarjeta...</string>
+
 </resources>

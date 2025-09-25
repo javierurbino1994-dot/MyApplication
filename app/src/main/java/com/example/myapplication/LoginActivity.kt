@@ -24,7 +24,7 @@ class LoginActivity : AppCompatActivity() {
         val tvRegister = findViewById<TextView>(R.id.tvRegister)
         tvRegister.setOnClickListener {
             println("DEBUG: Clic en texto Registrarse") // Para debug
-            val intent = Intent(this, activity_registro::class.java)
+            val intent = Intent(this, ActivityRegistro::class.java)
             startActivity(intent)
             // NO uses finish() aquí para que el usuario pueda volver al login
         }

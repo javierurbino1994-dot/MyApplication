@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.myapplication">
+    package="com.example.myapplication" >
 
     <application
         android:allowBackup="true"
@@ -10,57 +10,46 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyApplication">
-
-        <!-- MainActivity es la actividad principal (punto de entrada) -->
+        android:theme="@style/Theme.MyApplication" >
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- LoginActivity -->
+        </activity> <!-- LoginActivity -->
         <activity
             android:name=".LoginActivity"
-            android:exported="false" />
-
-        <!-- HU0004Activity (pantalla principal después del login) -->
+            android:exported="false" /> <!-- HU0004Activity (pantalla principal después del login) -->
         <activity
             android:name=".HU0004Activity"
-            android:exported="false" />
-
-        <!-- Otras actividades -->
+            android:exported="false" /> <!-- Otras actividades -->
         <activity
-            android:name=".activity_registro"
-            android:exported="false" />
-
-        <!-- Actividades para navegación -->
+            android:name=".ActivityRegistro"
+            android:exported="false" /> <!-- Actividades para navegación -->
         <activity
-            android:name=".listabebidas"
-            android:exported="false" />
-
-        <!-- NUEVA ACTIVIDAD PARA IDENTIFICACIÓN -->
+            android:name=".ListaBebidasActivity"
+            android:exported="false" /> <!-- NUEVA ACTIVIDAD PARA IDENTIFICACIÓN -->
         <activity
             android:name=".IdentificacionActivity"
             android:exported="false" />
         <activity
             android:name=".TipodepagoActivity"
             android:exported="false" />
-        <activity android:name=".TarjetaPaymentActivity" android:exported="false"/>
-        <activity android:name=".TransferenciaActivity" android:exported="false"/>
-        <activity android:name=".YapePaymentActivity" android:exported="false"/>
-        <activity android:name=".TicketActivity" android:exported="false"/>
-        <!--<activity
-           android:name=".TicketsActivity"
-           android:exported="false" />
-
-       <activity
-           android:name=".PerfilActivity"
-           android:exported="false" />-->
-
+        <activity
+            android:name=".TarjetaPaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TransferenciaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".YapePaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TicketActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

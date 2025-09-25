@@ -16,7 +16,7 @@ class IdentificacionActivity : AppCompatActivity() {
     private lateinit var etApellido: EditText
     private lateinit var etEmail: EditText
     private lateinit var etTelefono: EditText
-    private lateinit var etDocumento: EditText
+    private lateinit var etDni: EditText
     private lateinit var btnContinuar: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +39,7 @@ class IdentificacionActivity : AppCompatActivity() {
         etApellido = findViewById(R.id.etApellido)
         etEmail = findViewById(R.id.etEmail)
         etTelefono = findViewById(R.id.etTelefono)
-        etDocumento = findViewById(R.id.etDocumento)
+        etDni = findViewById(R.id.etDni)
         btnContinuar = findViewById(R.id.btnContinuar)
     }
 
@@ -54,7 +54,7 @@ class IdentificacionActivity : AppCompatActivity() {
         val apellido = etApellido.text.toString().trim()
         val email = etEmail.text.toString().trim()
         val telefono = etTelefono.text.toString().trim()
-        val documento = etDocumento.text.toString().trim()
+        val documento = etDni.text.toString().trim()
 
         when {
             nombre.isEmpty() -> {
@@ -89,12 +89,12 @@ class IdentificacionActivity : AppCompatActivity() {
             }
             documento.isEmpty() -> {
                 mostrarError("Ingresa tu documento")
-                etDocumento.requestFocus()
+                etDni.requestFocus()
                 return
             }
             !isDocumentValid(documento) -> {
                 mostrarError("El documento debe tener al menos 8 dígitos")
-                etDocumento.requestFocus()
+                etDni.requestFocus()
                 return
             }
         }
@@ -115,18 +115,25 @@ class IdentificacionActivity : AppCompatActivity() {
         return document.length >= 8 && document.all { it.isDigit() }
     }
 
-    private fun continuarConDatos(nombre: String, apellido: String, email: String, telefono: String, documento: String) {
+    private fun continuarConDatos(
+        nombre: String,
+        apellido: String,
+        email: String,
+        telefono: String,
+        dni: String
+    ) {
         Toast.makeText(this, "Datos validados correctamente", Toast.LENGTH_SHORT).show()
 
-        // Navegación a TipodepagoActivity con datos
         val intent = Intent(this, TipodepagoActivity::class.java).apply {
-            putExtra("nombre", "$nombre $apellido")
-            putExtra("dni", documento)
+            putExtra("nombre", nombre)
+            putExtra("apellido", apellido)
+            putExtra("dni", dni)
             putExtra("telefono", telefono)
             putExtra("email", email)
         }
         startActivity(intent)
     }
+
 
     private fun mostrarError(mensaje: String) {
         Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show()

@@ -2,6 +2,8 @@ package com.example.myapplication
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -16,8 +18,9 @@ class YapePaymentActivity : AppCompatActivity() {
     private lateinit var etApprovalCode: EditText
     private lateinit var btnPayYape: Button
 
-    // Variables para almacenar los datos del usuario
+    // Datos del usuario
     private lateinit var nombre: String
+    private lateinit var apellido: String
     private lateinit var dni: String
     private lateinit var telefono: String
     private lateinit var email: String
@@ -27,21 +30,21 @@ class YapePaymentActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_yape_payment)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        // ✅ Usamos el root de la actividad
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(android.R.id.content)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        // Recibir datos de TipodepagoActivity
         recibirDatosUsuario()
-
         initViews()
         setupListeners()
     }
 
     private fun recibirDatosUsuario() {
         nombre = intent.getStringExtra("nombre") ?: "Nombre no disponible"
+        apellido = intent.getStringExtra("apellido") ?: "Apellido no disponible"
         dni = intent.getStringExtra("dni") ?: "DNI no disponible"
         telefono = intent.getStringExtra("telefono") ?: "Teléfono no disponible"
         email = intent.getStringExtra("email") ?: "Email no disponible"
@@ -69,7 +72,7 @@ class YapePaymentActivity : AppCompatActivity() {
         }
 
         if (phoneNumber.length != 9 || !phoneNumber.startsWith("9")) {
-            showToast("Ingresa un número de celular válido (9########)")
+            showToast("Ingresa un número válido (9########)")
             return
         }
 
@@ -91,12 +94,11 @@ class YapePaymentActivity : AppCompatActivity() {
         btnPayYape.isEnabled = false
         btnPayYape.text = "PROCESANDO..."
 
-        android.os.Handler().postDelayed({
+        // ✅ Handler moderno con Looper principal
+        Handler(Looper.getMainLooper()).postDelayed({
             showToast("¡Pago exitoso! S/ 87.20")
             btnPayYape.isEnabled = true
             btnPayYape.text = "YAPEAR S/ 87.20"
-
-            // Navegar a TicketActivity con los datos del usuario
             navigateToTicketActivity()
         }, 2000)
     }
@@ -104,16 +106,15 @@ class YapePaymentActivity : AppCompatActivity() {
     private fun navigateToTicketActivity() {
         val intent = Intent(this, TicketActivity::class.java).apply {
             putExtra("nombre", nombre)
+            putExtra("apellido", apellido)
             putExtra("dni", dni)
             putExtra("telefono", telefono)
             putExtra("email", email)
         }
-
         startActivity(intent)
-        // finish() // Opcional: cierra esta actividad
     }
 
-    private fun showToast(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    private fun showToast(msg: String) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
 }

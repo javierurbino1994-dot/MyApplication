@@ -5,27 +5,27 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myapplication.R.*
 
-class activity_registro : AppCompatActivity() {
+
+class ActivityRegistro : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(layout.activity_registro)
 
-        // Navegación de vuelta al login cuando se hace clic en "Iniciar sesión"
+        setContentView(R.layout.activity_registro)
+
+        // Navegación de vuelta al login
         val tvLogin = findViewById<TextView>(R.id.tvLogin)
         tvLogin.setOnClickListener {
-            finish() // Vuelve a LoginActivity
+            finish() // Cierra esta actividad y regresa al login
         }
 
-        // Acción del botón Registrarse - va a la pantalla principal
+        // Botón de registro
         val btnRegister = findViewById<Button>(R.id.btnRegister)
         btnRegister.setOnClickListener {
-            // Aquí va la lógica de registro (validaciones, etc.)
-            // Después del registro exitoso, ir a la pantalla principal
             val intent = Intent(this, HU0004Activity::class.java)
             startActivity(intent)
-            finish() // Cierra la actividad de registro para que no se pueda volver atrás
+            finish() // Cierra ActivityRegistro para que no se pueda volver atrás
         }
     }
 }
+

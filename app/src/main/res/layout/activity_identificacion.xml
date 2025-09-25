@@ -309,7 +309,7 @@ tools:context=".IdentificacionActivity">
                     tools:ignore="UseAppTint" />
 
                 <EditText
-                    android:id="@+id/etDocumento"
+                    android:id="@+id/etDni"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="12dp"

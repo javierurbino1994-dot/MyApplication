@@ -17,6 +17,7 @@ class TipodepagoActivity : AppCompatActivity() {
 
     // Variables para almacenar los datos del usuario
     private var nombre: String = ""
+    private var apellido: String = ""
     private var dni: String = ""
     private var telefono: String = ""
     private var email: String = ""
@@ -37,6 +38,7 @@ class TipodepagoActivity : AppCompatActivity() {
     private fun recibirDatosUsuario() {
         try {
             nombre = intent.getStringExtra("nombre") ?: ""
+            apellido = intent.getStringExtra("apellido") ?: ""
             dni = intent.getStringExtra("dni") ?: ""
             telefono = intent.getStringExtra("telefono") ?: ""
             email = intent.getStringExtra("email") ?: ""
@@ -44,11 +46,12 @@ class TipodepagoActivity : AppCompatActivity() {
             // Debug: Verificar que los datos se recibieron
             Log.d("TIPOPAGO_DEBUG", "Datos recibidos:")
             Log.d("TIPOPAGO_DEBUG", "Nombre: $nombre")
+            Log.d("TIPOPAGO_DEBUG", "Apellido: $apellido")
             Log.d("TIPOPAGO_DEBUG", "DNI: $dni")
             Log.d("TIPOPAGO_DEBUG", "Teléfono: $telefono")
             Log.d("TIPOPAGO_DEBUG", "Email: $email")
 
-            if (nombre.isEmpty()) {
+            if (nombre.isEmpty() || apellido.isEmpty()) {
                 Toast.makeText(this, "Error: No se recibieron datos del usuario", Toast.LENGTH_LONG).show()
                 Log.e("TIPOPAGO_DEBUG", "No se recibieron datos desde IdentificacionActivity")
             }
@@ -67,21 +70,13 @@ class TipodepagoActivity : AppCompatActivity() {
     }
 
     private fun setupListeners() {
-        rbTarjeta.setOnClickListener {
-            seleccionarOpcion("tarjeta")
-        }
-
-        rbTransferencia.setOnClickListener {
-            seleccionarOpcion("transferencia")
-        }
-
-        rbYape.setOnClickListener {
-            seleccionarOpcion("yape")
-        }
+        rbTarjeta.setOnClickListener { seleccionarOpcion("tarjeta") }
+        rbTransferencia.setOnClickListener { seleccionarOpcion("transferencia") }
+        rbYape.setOnClickListener { seleccionarOpcion("yape") }
 
         btnContinuar.setOnClickListener {
             // Verificar que tenemos datos antes de continuar
-            if (nombre.isEmpty()) {
+            if (nombre.isEmpty() || apellido.isEmpty()) {
                 Toast.makeText(this, "Error: Datos del usuario no disponibles", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }
@@ -115,11 +110,12 @@ class TipodepagoActivity : AppCompatActivity() {
     private fun pasarDatosAIntent(intent: Intent) {
         try {
             intent.putExtra("nombre", nombre)
+            intent.putExtra("apellido", apellido)
             intent.putExtra("dni", dni)
             intent.putExtra("telefono", telefono)
             intent.putExtra("email", email)
 
-            Log.d("TIPOPAGO_DEBUG", "Datos pasados a intent: $nombre, $dni, $telefono, $email")
+            Log.d("TIPOPAGO_DEBUG", "Datos pasados a intent: $nombre $apellido, $dni, $telefono, $email")
         } catch (e: Exception) {
             Log.e("TIPOPAGO_DEBUG", "Error al pasar datos: ${e.message}")
         }

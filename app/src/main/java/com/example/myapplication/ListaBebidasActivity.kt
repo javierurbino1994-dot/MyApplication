@@ -8,14 +8,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class listabebidas : AppCompatActivity() {
+class ListaBebidasActivity : AppCompatActivity() {
+
     // MODELO (representa cada bebida)
     data class Bebida(
         val imagen: Int,
@@ -24,8 +22,9 @@ class listabebidas : AppCompatActivity() {
         val precio: String,
         var cantidad: Int = 0
     )
+
     // ADAPTER (conecta los datos con el RecyclerView)
-    class BebidaAdapter(private val bebidas: List<com.example.myapplication.listabebidas.Bebida>) :
+    class BebidaAdapter(private val bebidas: List<Bebida>) :
         RecyclerView.Adapter<BebidaAdapter.BebidaViewHolder>() {
 
         class BebidaViewHolder(val view: View) : RecyclerView.ViewHolder(view)
@@ -70,6 +69,7 @@ class listabebidas : AppCompatActivity() {
 
         override fun getItemCount(): Int = bebidas.size
     }
+
     // ACTIVITY
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,7 +78,7 @@ class listabebidas : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerBebidas)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        // Lista con los 4 productos
+        // Lista con los productos
         val bebidas = listOf(
             Bebida(R.drawable.sanluis, "Agua San Luis", "750 ml", "S/ 5.00"),
             Bebida(R.drawable.cocacola, "Coca Cola", "500 ml", "S/ 2.50"),
@@ -91,12 +91,11 @@ class listabebidas : AppCompatActivity() {
 
         val adapter = BebidaAdapter(bebidas)
         recyclerView.adapter = adapter
-        // === SOLO ESTO SE AGREGA ===
+
         val btnContinuar = findViewById<Button>(R.id.btnContinuar)
         btnContinuar.setOnClickListener {
             val intent = Intent(this, IdentificacionActivity::class.java)
             startActivity(intent)
         }
-
     }
 }

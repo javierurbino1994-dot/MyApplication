@@ -31,7 +31,8 @@
                 android:text="FOOD"
                 android:textColor="#00D4FF"
                 android:textSize="32sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
 
             <TextView
                 android:id="@+id/tvFest"
@@ -40,7 +41,8 @@
                 android:text=" FEST"
                 android:textColor="#FF007A"
                 android:textSize="32sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
         </LinearLayout>
 
         <!-- Código QR -->
@@ -51,7 +53,8 @@
             android:layout_marginBottom="24dp"
             android:background="#FFFFFF"
             android:padding="8dp"
-            android:scaleType="centerInside" />
+            android:scaleType="centerInside"
+            tools:ignore="ContentDescription" />
 
         <!-- Datos del cliente -->
         <LinearLayout
@@ -73,20 +76,22 @@
                     android:layout_height="24dp"
                     android:src="@drawable/ic_person"
                     android:tint="#FF007A"
-                    tools:ignore="UseAppTint" />
+                    tools:ignore="ContentDescription,UseAppTint" />
 
                 <TextView
                     style="@style/ticketLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nombre: " />
+                    android:text="Nombre: "
+                    tools:ignore="HardcodedText" />
 
                 <TextView
                     android:id="@+id/tvNombre"
                     style="@style/ticketValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Javier" />
+                    android:text="Javier"
+                    tools:ignore="HardcodedText" />
 
 
 
@@ -107,21 +112,23 @@
                     android:layout_height="24dp"
                     android:src="@drawable/ic_person"
                     android:tint="#FF007A"
-                    tools:ignore="UseAppTint" />
+                    tools:ignore="ContentDescription,UseAppTint" />
 
 
                 <TextView
                     style="@style/ticketLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Apellido: " />
+                    android:text="Apellido: "
+                    tools:ignore="HardcodedText" />
 
                 <TextView
                     android:id="@+id/tvApellido"
                     style="@style/ticketValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Obregon Urbino" />
+                    android:text="Obregon Urbino"
+                    tools:ignore="HardcodedText" />
             </LinearLayout>
 
             <!-- DNI -->
@@ -137,20 +144,22 @@
                     android:layout_height="24dp"
                     android:src="@drawable/ic_id_card"
                     android:tint="#FF007A"
-                    tools:ignore="UseAppTint" />
+                    tools:ignore="ContentDescription,UseAppTint" />
 
                 <TextView
                     style="@style/ticketLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="DNI O CE: " />
+                    android:text="DNI O CE: "
+                    tools:ignore="HardcodedText" />
 
                 <TextView
                     android:id="@+id/tvDni"
                     style="@style/ticketValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="12345678" />
+                    android:text="12345678"
+                    tools:ignore="HardcodedText" />
             </LinearLayout>
 
             <!-- Celular -->
@@ -166,20 +175,22 @@
                     android:layout_height="24dp"
                     android:src="@drawable/ic_phone"
                     android:tint="#FF007A"
-                    tools:ignore="UseAppTint" />
+                    tools:ignore="ContentDescription,UseAppTint" />
 
                 <TextView
                     style="@style/ticketLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Celular: " />
+                    android:text="Celular: "
+                    tools:ignore="HardcodedText" />
 
                 <TextView
                     android:id="@+id/tvCelular"
                     style="@style/ticketValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="912345678" />
+                    android:text="912345678"
+                    tools:ignore="HardcodedText" />
             </LinearLayout>
 
             <!-- Correo -->
@@ -195,20 +206,22 @@
                     android:layout_height="24dp"
                     android:src="@drawable/ic_email"
                     android:tint="#FF007A"
-                    tools:ignore="UseAppTint" />
+                    tools:ignore="ContentDescription,UseAppTint" />
 
                 <TextView
                     style="@style/ticketLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Correo: " />
+                    android:text="Correo: "
+                    tools:ignore="HardcodedText" />
 
                 <TextView
                     android:id="@+id/tvCorreo"
                     style="@style/ticketValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Javier@gmail.con" />
+                    android:text="Javier@gmail.con"
+                    tools:ignore="HardcodedText" />
             </LinearLayout>
         </LinearLayout>
 
@@ -222,9 +235,22 @@
             android:text="Tiempo estimado para recoger: 00:20:00"
             android:textColor="#FF5722"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+    <!-- Fecha y hora -->
+    <TextView
+        android:id="@+id/tvFechaHora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Generado el:"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        tools:ignore="HardcodedText" />
 
-        <!-- Instrucción final -->
+
+    <!-- Instrucción final -->
         <TextView
             android:id="@+id/tvInstruccion"
             android:layout_width="match_parent"
@@ -232,6 +258,7 @@
             android:text="Muestra este ticket en caja para recoger tus productos."
             android:textAlignment="center"
             android:textColor="#CCCCCC"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
     </LinearLayout>
 </ScrollView>

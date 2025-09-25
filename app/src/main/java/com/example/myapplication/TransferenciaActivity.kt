@@ -2,6 +2,8 @@ package com.example.myapplication
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -15,7 +17,6 @@ class TransferenciaActivity : AppCompatActivity() {
     private lateinit var etCipEmail: EditText
     private lateinit var btnPagarTransferencia: Button
 
-    // Variables para almacenar los datos del usuario
     private lateinit var nombre: String
     private lateinit var dni: String
     private lateinit var telefono: String
@@ -26,7 +27,8 @@ class TransferenciaActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_transferencia)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        // ✅ Usamos android.R.id.content
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(android.R.id.content)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
@@ -43,12 +45,10 @@ class TransferenciaActivity : AppCompatActivity() {
     }
 
     private fun recibirDatosUsuario() {
-        nombre = intent.getStringExtra("nombre") ?: "Nombre no disponible"
-        dni = intent.getStringExtra("dni") ?: "DNI no disponible"
-        telefono = intent.getStringExtra("telefono") ?: "Teléfono no disponible"
-        email = intent.getStringExtra("email") ?: "Email no disponible"
-
-        // Prellenar el email para el CIP
+        nombre = intent.getStringExtra("nombre") ?: getString(R.string.dato_no_disponible)
+        dni = intent.getStringExtra("dni") ?: getString(R.string.dato_no_disponible)
+        telefono = intent.getStringExtra("telefono") ?: getString(R.string.dato_no_disponible)
+        email = intent.getStringExtra("email") ?: getString(R.string.dato_no_disponible)
         etCipEmail.setText(email)
     }
 
@@ -62,32 +62,29 @@ class TransferenciaActivity : AppCompatActivity() {
         val cipEmail = etCipEmail.text.toString().trim()
 
         if (cipEmail.isEmpty()) {
-            showToast("Ingresa el email para envío del código CIP")
+            showToast(getString(R.string.error_email_cip_empty))
             etCipEmail.requestFocus()
             return
         }
 
         if (!isEmailValid(cipEmail)) {
-            showToast("Ingresa un email válido")
+            showToast(getString(R.string.error_email_invalid))
             etCipEmail.requestFocus()
             return
         }
 
-        showToast("Generando código CIP de PagoEfectivo...")
+        showToast(getString(R.string.generating_cip))
         processPaymentWithTransferencia(cipEmail)
     }
 
     private fun processPaymentWithTransferencia(cipEmail: String) {
         btnPagarTransferencia.isEnabled = false
-        btnPagarTransferencia.text = "GENERANDO CIP..."
+        btnPagarTransferencia.text = getString(R.string.generating_cip_button)
 
-        // Simular generación del código CIP
-        android.os.Handler().postDelayed({
-            showToast("¡Código CIP generado! Se envió a: $cipEmail")
+        Handler(Looper.getMainLooper()).postDelayed({
+            showToast(getString(R.string.cip_generated, cipEmail))
             btnPagarTransferencia.isEnabled = true
-            btnPagarTransferencia.text = "PAGAR S/ 99.75"
-
-            // Navegar a TicketActivity con los datos del usuario
+            btnPagarTransferencia.text = getString(R.string.pay_amount)
             navigateToTicketActivity(cipEmail)
         }, 3000)
     }
@@ -99,7 +96,6 @@ class TransferenciaActivity : AppCompatActivity() {
             putExtra("telefono", telefono)
             putExtra("email", cipEmail)
         }
-
         startActivity(intent)
         finish()
     }
@@ -108,7 +104,8 @@ class TransferenciaActivity : AppCompatActivity() {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 
-    private fun showToast(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+    private fun showToast(msg: String) {
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
     }
 }
+
